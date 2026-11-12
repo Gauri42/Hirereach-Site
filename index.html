@@ -1,18 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>HireReach: Reach the right HR, faster</title>
-<meta name="description" content="HireReach is a free, open source Chrome extension that finds recruiters and HR people among your LinkedIn connections and sends each a personal message with your resume.">
-<meta property="og:title" content="HireReach: Reach the right HR, faster">
-<meta property="og:description" content="A free Chrome extension that finds HR and recruiters in your LinkedIn connections and messages them one by one, while you stay in control.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0a66c2">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>HireReach Demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
-<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+<style>
 /* Layout: calm hero, then one large live demo (simulated connections page + extension panel), then plain-language sections. Blue-tinted neutrals, LinkedIn-adjacent blue only for the product itself. */
 :root{
   --bg:#f4f7fb; --surface:#ffffff; --surface2:#eef3f9; --ink:#122033; --mute:#566a80; --line:#dbe4ee;
@@ -103,7 +94,7 @@ button{font-family:inherit}
 .file i{width:34px;height:34px;border-radius:7px;background:#c8102e;color:#fff;font-style:normal;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
 .file small{display:block;color:var(--mute);font-size:11.5px}
 .compose{border-top:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
-.box{min-height:92px;max-height:150px;overflow:hidden;background:var(--surface2);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.5;white-space:pre-wrap;color:var(--mute)}
+.box{min-height:92px;max-height:200px;overflow:hidden;background:var(--surface2);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.5;white-space:pre-wrap;color:var(--mute)}
 .box.f{color:var(--ink)}
 .sendrow{display:flex;justify-content:space-between;align-items:center;color:var(--mute);font-size:12px}
 .fakeSend{border-radius:16px;padding:5px 16px;font-size:13px;font-weight:600;background:var(--surface2);color:var(--mute)}
@@ -123,8 +114,10 @@ button{font-family:inherit}
 .sn.done .dot{background:var(--brand);border-color:var(--brand);color:var(--on)}
 .sl{font-size:10.5px;color:var(--mute);font-weight:500}.sn.cur .sl{color:var(--ink);font-weight:600}
 .ln{flex:1;height:2px;background:var(--line);margin-top:11px}.ln.on{background:var(--brand)}
-.p-body{padding:14px 16px 6px;animation:rise .28s ease;min-height:330px}
+.p-body{padding:14px 16px 6px;min-height:330px}
+.p-body.anim{animation:rise .28s ease}
 .p-body h3{font-size:17px;margin-bottom:4px}
+.lbl{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:12px 0 7px}
 .sub{margin:0 0 14px;color:var(--mute);font-size:12.5px;line-height:1.5}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{border:1px solid var(--line);background:var(--surface);color:var(--mute);border-radius:16px;padding:5px 12px;font-size:12.5px;font-weight:500;cursor:pointer}
@@ -208,8 +201,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
   .band{padding-top:56px}
 }
 </style>
-</head>
-<body>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <linearGradient id="lgGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#378fe9"/><stop offset="1" stop-color="#0a55a8"/></linearGradient>
 </defs></svg>
@@ -227,8 +219,8 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
 
   <section class="hero">
     <span class="eyebrow"><span class="i" id="ic-spark"></span>Chrome extension, open source</span>
-    <h1>Reach the right HR, <em>faster.</em></h1>
-    <p>HireReach finds the recruiters and HR people among your LinkedIn connections, writes each one a personal message with your resume attached, and sends them one by one while you stay in control.</p>
+    <h1>Reach the right people, <em>faster.</em></h1>
+    <p>HireReach finds people in your LinkedIn connections by field, role or company, writes each one a personal message with your resume attached, and sends them one by one while you stay in control.</p>
     <div class="cta">
       <a class="btn" href="#demo">Watch it work</a>
       <a class="btn ghost" href="https://github.com/Gauri42/hirereach" target="_blank" rel="noopener">View the code</a>
@@ -239,7 +231,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
     <div class="demo-head">
       <div>
         <h2>See it in action</h2>
-        <p>A simulated run with made-up people. Click any step to try it yourself.</p>
+        <p>A simulated run with made-up people. Pick a field or a company and watch the matches change.</p>
       </div>
       <div class="tabs" id="tabs"></div>
     </div>
@@ -260,10 +252,18 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
     <h2>Four steps, no copy and paste</h2>
     <p class="lead">You set it up once. HireReach does the repetitive clicking, and you decide who gets a message.</p>
     <div class="steps">
-      <div class="stepc"><div class="n">STEP 1</div><h3>Filter</h3><p>Choose the job titles you care about, like HR, Recruiter or Talent Acquisition, then scan your connections.</p></div>
+      <div class="stepc"><div class="n">STEP 1</div><h3>Filter</h3><p>Pick a field like Sales, Marketing or HR, or type your own roles. Add a company or words to skip, then scan your connections.</p></div>
       <div class="stepc"><div class="n">STEP 2</div><h3>Matches</h3><p>Review who matched. Tick or untick people before anything is sent.</p></div>
-      <div class="stepc"><div class="n">STEP 3</div><h3>Message</h3><p>Write one message. Each person's first name is filled in for you. Attach your resume if you like.</p></div>
+      <div class="stepc"><div class="n">STEP 3</div><h3>Message</h3><p>Write one message. Each person's first name, company and role are filled in for you. Attach your resume if you like.</p></div>
       <div class="stepc"><div class="n">STEP 4</div><h3>Send</h3><p>Press Send &amp; Next. HireReach opens each chat, fills in the message, attaches the file and sends it.</p></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>Not just for HR</h2>
+    <p class="lead">Use it for job hunting, sales outreach, partnerships or networking. Pick a field, or type any role, position or company.</p>
+    <div class="pillrow">
+      <span class="pill">HR &amp; Recruiting</span><span class="pill">Sales</span><span class="pill">Marketing</span><span class="pill">Engineering</span><span class="pill">Product &amp; Design</span><span class="pill">Data &amp; AI</span><span class="pill">Finance</span><span class="pill">Leadership</span><span class="pill">Your own keywords</span><span class="pill">Specific companies</span>
     </div>
   </section>
 
@@ -329,18 +329,33 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
   $('brandLogo').innerHTML=LOGO(34)+'HireReach';
   $('ic-spark').innerHTML=IC(P_SPARK,14).replace('<span class="i">','').replace('</span>','');
 
+  var PACKS={'HR & Recruiting':['HR','Recruiter','Recruitment','Talent Acquisition','Hiring'],'Sales':['Sales','Business Development','Account Executive','SDR','Revenue'],'Marketing':['Marketing','Growth','Brand','Content','SEO'],'Engineering':['Engineer','Developer','Software','CTO'],'Product & Design':['Product Manager','Designer','UX']};
+  var COMPS=['Northwind Labs','Kestrel Systems','Brightpath'];
   var P=[
-    {n:'Aarav Mehta',h:'HR Manager at Northwind Labs',m:1},
-    {n:'Diya Kulkarni',h:'Talent Acquisition Lead at Brightpath',m:1,log:'Messaged 1 day ago'},
-    {n:'Meera Joshi',h:'HR Business Partner at Lumen Retail',m:1,yest:1},
-    {n:'Rohan Iyer',h:'Senior Recruiter at Kestrel Systems',m:1},
-    {n:'Kabir Shah',h:'Software Engineer at Orbit Apps',m:0},
-    {n:'Sara Khan',h:'Product Designer at Plume Studio',m:0}
+    {n:'Aarav Mehta',h:'Sales Manager at Northwind Labs',r:'Sales Manager',c:'Northwind Labs'},
+    {n:'Diya Kulkarni',h:'Marketing Lead at Brightpath',r:'Marketing Lead',c:'Brightpath',log:'Messaged 1 day ago'},
+    {n:'Rohan Iyer',h:'Head of Growth Marketing at Kestrel Systems',r:'Head of Growth Marketing',c:'Kestrel Systems'},
+    {n:'Neel Verma',h:'Account Executive at Kestrel Systems',r:'Account Executive',c:'Kestrel Systems',yest:1},
+    {n:'Isha Rao',h:'Senior Recruiter at Northwind Labs',r:'Senior Recruiter',c:'Northwind Labs'},
+    {n:'Kabir Shah',h:'Software Engineer at Orbit Apps',r:'Software Engineer',c:'Orbit Apps'},
+    {n:'Sara Khan',h:'Product Designer at Plume Studio',r:'Product Designer',c:'Plume Studio'},
+    {n:'Meera Joshi',h:'HR Business Partner at Lumen Retail',r:'HR Business Partner',c:'Lumen Retail'}
   ];
-  var TPL='Hi {firstName},\n\nI am a Computer Science graduate looking for software roles. My resume is attached. I would be glad to hear about any openings that fit.\n\nThanks,\nRiya';
+  var TPL='Hi {firstName},\n\nI saw you are {role} at {company}. I am a Computer Science graduate looking for software roles, and my resume is attached.\n\nWould you be open to a quick chat?\n\nThanks,\nRiya';
   var LABELS=['Filter','Matches','Message','Send'];
   var S,run=0,CANCEL={};
-  function fresh(){S={step:1,scanning:false,count:0,hits:0,chips:{'HR':1,'Recruiter':1,'Talent Acquisition':1,'Hiring':0},typed:'',attached:false,sel:[0,2,3],q:[0,2,3],idx:0,phase:'idle',sent:0,skipped:0,done:false,auto:true,press:false}}
+  function kws(){var k=[];Object.keys(S.packs).forEach(function(n){if(S.packs[n])k=k.concat(PACKS[n])});return k}
+  function esc(t){return t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+  function matchIdx(){
+    var k=kws(),c=S.comps;if(!k.length&&!c.length)return [];
+    var kr=k.map(function(t){return new RegExp('(^|[^a-z0-9])'+esc(t)+'([^a-z0-9]|$)','i')});
+    return P.map(function(p,i){
+      var okK=!kr.length||kr.some(function(r){return r.test(p.h)});
+      var okC=!c.length||c.indexOf(p.c)>-1;
+      return okK&&okC?i:-1}).filter(function(i){return i>-1});
+  }
+  function fill(t,p){return t.split('{firstName}').join(first(p.n)).split('{role}').join(p.r).split('{company}').join(p.c)}
+  function fresh(){S={step:1,scanning:false,count:0,hits:0,packs:{},comps:[],typed:'',attached:false,sel:[],q:[],idx:0,phase:'idle',sent:0,skipped:0,done:false,auto:true}}
   var ini=function(n){return n.split(' ').map(function(w){return w[0]}).join('')};
   var first=function(n){return n.split(' ')[0]};
   async function wait(ms){var id=run;await sleep(ms);if(id!==run)throw CANCEL}
@@ -356,20 +371,22 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
 
   function leftHtml(){
     if(S.step<4){
+      var mi=matchIdx();
       var rows=P.map(function(p,i){
-        var cls='row';
-        if(S.step>=2||S.count>=47){ if(!p.m)cls+=' dim'; }
-        else if(S.scanning){ if(i<S.hits&&p.m)cls+=' hit'; }
+        var cls='row',m=mi.indexOf(i)>-1;
+        if(S.step>=2){ if(!m)cls+=' dim'; }
+        else if(S.scanning){ if(m&&S.hits>=i+1)cls+=' hit'; }
+        else if(m)cls+=' hit';
         return '<div class="'+cls+'"><div class="av">'+ini(p.n)+'</div><div class="t"><b>'+p.n+'</b><span class="h">'+p.h+'</span></div><span class="fake">Message</span></div>';
       }).join('');
-      var cnt=S.step>=2?'47 scanned, 4 matches':S.scanning?S.count+' scanned':'47 connections';
+      var cnt=S.step>=2?'47 scanned, '+mi.length+' matches':S.scanning?S.count+' scanned':mi.length+' match your filter so far';
       return '<div class="lt"><span>Your connections</span><span>'+cnt+'</span></div>'+rows+'<div class="note">Sample list. A real run scrolls through your whole connections page.</div>';
     }
     var p=cur();
     if(S.done)return '<div class="lt"><span>Messages</span><span>Run finished</span></div><div class="chat"><div class="chat-b" style="justify-content:center;align-items:center;color:var(--mute);text-align:center;gap:6px">'+IC(P_CHECK,34)+'<div>Every selected chat has been handled.</div></div></div>';
     var body='';
     if(p.yest)body+='<div class="day">Yesterday</div><div class="msg them">Thanks for connecting, Riya! Happy to help.</div>';
-    var ph=S.phase,fin=TPL.split('{firstName}').join(first(p.n));
+    var ph=S.phase,fin=fill(TPL,p);
     if(ph==='sent'||ph==='sending'&&0)body+='<div class="day">Today</div><div class="msg me">'+fin+'<div class="file"><i>PDF</i><div>Resume.pdf<small>175 KB</small></div></div></div>';
     if(ph==='skipped')body+='<div class="skipmsg">Skipped: this chat already has messages from yesterday.</div>';
     var comp='';
@@ -381,23 +398,24 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
   function panelBody(){
     var s=S.step;
     if(s===1){
-      var chips=Object.keys(S.chips).map(function(k){return '<button class="chip'+(S.chips[k]?' on':'')+'" data-act="chip" data-k="'+k+'">'+k+'</button>'}).join('');
-      var scan=S.scanning?'<div class="state wait" style="border:0;margin:14px 0 0;padding:0"><span class="spin">'+IC(P_LOAD,18)+'</span>Scanning your connections... '+S.count+'</div>':'';
-      return '<h3>Who should we message?</h3><p class="sub">Pick job titles to look for in connection headlines.</p><div class="chips">'+chips+'</div>'+scan+
-        '<div class="note" style="margin-top:16px">Tip: HireReach checks each headline for these words.</div>';
+      var pk=Object.keys(PACKS).map(function(k){return '<button class="chip'+(S.packs[k]?' on':'')+'" data-act="pack" data-k="'+k+'">'+(S.packs[k]?IC(P_CHECK,12)+' ':'')+k+'</button>'}).join('');
+      var cp=COMPS.map(function(k){var on=S.comps.indexOf(k)>-1;return '<button class="chip'+(on?' on':'')+'" data-act="comp" data-k="'+k+'">'+(on?IC(P_CHECK,12)+' ':'')+k+'</button>'}).join('');
+      var scan=S.scanning?'<div class="state wait" style="border:0;margin:12px 0 0;padding:0"><span class="spin">'+IC(P_LOAD,18)+'</span>Scanning your connections... '+S.count+'</div>':'';
+      return '<h3>Who do you want to reach?</h3><p class="sub">Pick a field, and optionally a company.</p><div class="lbl">Field</div><div class="chips">'+pk+'</div><div class="lbl">Company</div><div class="chips">'+cp+'</div>'+scan+
+        '<div class="note" style="margin-top:12px">In the extension you can also type any keyword, position or company, and words to skip.</div>';
     }
     if(s===2){
-      var items=P.map(function(p,i){
-        if(!p.m)return '';
+      var mi=matchIdx();
+      var items=mi.map(function(i,k){var p=P[i];
         var on=S.sel.indexOf(i)>-1;
-        return '<div class="li" style="animation-delay:'+(i*70)+'ms"><div class="cb'+(on?' on':'')+'">'+(on?IC(P_CHECK,12):'')+'</div><div class="av sm">'+ini(p.n)+'</div><div class="t"><b>'+p.n+'</b><small>'+p.h+'</small></div>'+(p.log?'<span class="tag warn">'+p.log+'</span>':'<span class="tag">Match</span>')+'</div>';
+        return '<div class="li" style="animation-delay:'+(k*70)+'ms"><div class="cb'+(on?' on':'')+'">'+(on?IC(P_CHECK,12):'')+'</div><div class="av sm">'+ini(p.n)+'</div><div class="t"><b>'+p.n+'</b><small>'+p.h+'</small></div>'+(p.log?'<span class="tag warn">'+p.log+'</span>':'<span class="tag">Match</span>')+'</div>';
       }).join('');
-      return '<div style="display:flex;align-items:baseline;gap:8px"><span class="big">'+S.sel.length+'</span><span class="sub" style="margin:0">of 4 matches selected</span></div><div class="list">'+items+'</div><div class="note">Diya was messaged yesterday, so she is not selected.</div>';
+      var rec=mi.filter(function(i){return P[i].log}).map(function(i){return first(P[i].n)});
+      return '<div style="display:flex;align-items:baseline;gap:8px"><span class="big">'+S.sel.length+'</span><span class="sub" style="margin:0">of '+mi.length+' matches selected</span></div><div class="list">'+items+'</div>'+(rec.length?'<div class="note">'+rec.join(', ')+' was messaged yesterday, so not selected.</div>':'');
     }
     if(s===3){
-      var pv=first(P[S.sel[0]].n);
       var att=S.attached?'<div class="att"><div class="fi">'+IC(P_FILE,18)+'</div><div><b>Resume.pdf</b><small>175 KB &middot; sent with every message</small></div></div>':'';
-      return '<h3>Write your message</h3><p class="sub">Goes to '+S.sel.length+' people. {firstName} becomes each person\'s first name.</p><div class="comp"><div class="txt">'+(S.typed||'<span style="color:var(--mute)">Start typing...</span>')+'</div><div class="tl"><span class="tool">'+IC(P_USER,13)+'First name</span><span class="tool" style="'+(S.attached?'color:var(--brand)':'')+'">'+IC(P_CLIP,13)+'Attach</span></div></div>'+att;
+      return '<h3>Write your message</h3><p class="sub">Goes to '+S.sel.length+' people. Name, company and role are filled in for each.</p><div class="comp"><div class="txt">'+(S.typed||'<span style="color:var(--mute)">Start typing...</span>')+'</div><div class="tl"><span class="tool">'+IC(P_USER,13)+'Name</span><span class="tool">Company</span><span class="tool">Role</span><span class="tool" style="'+(S.attached?'color:var(--brand)':'')+'">'+IC(P_CLIP,13)+'Attach</span></div></div>'+att;
     }
     if(S.done){
       return '<div class="done"><div style="color:var(--ok)">'+IC(P_CHECK,40)+'</div><h3>All done</h3><p class="sub" style="margin:0">Your messages went out one at a time.</p><div class="sum"><div><b>'+S.sent+'</b><span>sent</span></div><div><b>'+S.skipped+'</b><span>skipped</span></div></div></div>';
@@ -415,7 +433,7 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
 
   function panelFoot(){
     var s=S.step;
-    if(s===1)return '<button class="pb" data-act="scan"'+(S.scanning?' disabled':'')+'>'+(S.scanning?'Scanning...':'Scan connections')+'</button>';
+    if(s===1)return '<button class="pb" data-act="scan"'+(S.scanning||!matchIdx().length?' disabled':'')+'>'+(S.scanning?'Scanning...':matchIdx().length?'Scan connections':'Pick a field')+'</button>';
     if(s===2)return '<button class="pb sec" data-act="go" data-n="1">Back</button><button class="pb" data-act="go" data-n="3">Continue</button>';
     if(s===3)return '<button class="pb sec" data-act="go" data-n="2">Back</button><button class="pb" data-act="go" data-n="4"'+(S.attached&&S.typed.length>=TPL.length?'':' disabled')+'>Continue</button>';
     if(S.done)return '<button class="pb" data-act="replay">Replay demo</button>';
@@ -423,17 +441,20 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
     return '<button class="pb sec danger" data-act="stop">Stop</button><button class="pb sec" data-act="skip"'+(S.phase==='opening'||S.phase==='ready'?'':' disabled')+'>Skip</button><button class="pb" data-act="sendnext"'+(ready?'':' disabled')+'>Send &amp; Next '+IC(P_SEND,14)+'</button>';
   }
 
+  var lastKey='';
   function render(){
+    var key=S.step+':'+S.done+':'+S.phase,anim=key!==lastKey;lastKey=key;
     $('left').innerHTML=leftHtml();
-    $('panel').innerHTML='<div class="p-top">'+LOGO(34)+'<div><b>HireReach</b><small>Reach the right HR, faster</small></div></div>'+stepper()+'<div class="p-body">'+panelBody()+'</div><div class="p-foot">'+panelFoot()+'</div>';
+    $('panel').innerHTML='<div class="p-top">'+LOGO(34)+'<div><b>HireReach</b><small>Reach the right people, faster</small></div></div>'+stepper()+'<div class="p-body'+(anim?' anim':'')+'">'+panelBody()+'</div><div class="p-foot">'+panelFoot()+'</div>';
     $('tabs').innerHTML=LABELS.map(function(l,i){return '<button class="tab'+(S.step===i+1?' on':'')+'" data-act="tab" data-n="'+(i+1)+'"><b>'+(i+1)+'</b>'+l+'</button>'}).join('');
   }
 
   /* ---- flow pieces ---- */
+  function pick(){S.sel=matchIdx().filter(function(i){return !P[i].log});S.q=S.sel.slice()}
   async function scan(){
     S.scanning=true;S.count=0;S.hits=0;render();
-    for(var c=0;c<=47;c+=3){S.count=Math.min(c,47);S.hits=Math.floor(c/8);render();await wait(110)}
-    S.count=47;S.hits=6;render();await wait(500);S.scanning=false;
+    for(var c=0;c<=47;c+=3){S.count=Math.min(c,47);S.hits=Math.floor(c/6);render();await wait(110)}
+    S.count=47;S.hits=99;render();await wait(500);S.scanning=false;pick();
   }
   async function typeMsg(){
     for(var i=0;i<=TPL.length;i+=4){S.typed=TPL.slice(0,i);render();await wait(22)}
@@ -456,14 +477,15 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
     return openPerson();
   }
   function setup(n){ // resting state for manual tab clicks
-    var keep=S.chips;fresh();S.auto=false;S.chips=keep;S.step=n;
-    if(n>=2){S.count=47;S.hits=6}
+    var kp=S.packs,kc=S.comps;fresh();S.auto=false;S.packs=kp;S.comps=kc;S.step=n;
+    if(!kws().length&&!S.comps.length){S.packs={'Sales':1,'Marketing':1}}
+    if(n>=2){S.count=47;S.hits=99;pick()}
     if(n>=3){S.typed=TPL;S.attached=true}
   }
   async function autoRun(){
     run++;fresh();render();
     try{
-      await wait(1400);await scan();
+      await wait(1300);S.packs['Sales']=1;render();await wait(800);S.packs['Marketing']=1;render();await wait(1100);await scan();
       S.step=2;render();await wait(2600);
       S.step=3;render();await wait(500);await typeMsg();await wait(700);
       S.attached=true;render();await wait(1700);
@@ -478,8 +500,9 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 40px;disp
     var a=t.getAttribute('data-act'),n=+t.getAttribute('data-n');
     if(a==='replay'){autoRun();return}
     if(a==='tab'){manual(async function(){setup(n);render();if(n===4){S.idx=0;await openPerson()}});return}
-    if(a==='go'){manual(async function(){S.step=n;if(n===3&&!S.typed){S.typed=TPL}if(n===3&&!S.attached){S.attached=true}render();if(n===4){S.idx=0;S.sent=0;S.skipped=0;await openPerson()}});return}
-    if(a==='chip'){var k=t.getAttribute('data-k');S.chips[k]=S.chips[k]?0:1;S.auto=false;run++;render();return}
+    if(a==='go'){manual(async function(){S.step=n;if(n===2&&!S.sel.length){if(!matchIdx().length){S.packs={'Sales':1,'Marketing':1}}S.count=47;S.hits=99;pick()}if(n===3&&!S.typed){S.typed=TPL}if(n===3&&!S.attached){S.attached=true}render();if(n===4){S.idx=0;S.sent=0;S.skipped=0;await openPerson()}});return}
+    if(a==='pack'){var k=t.getAttribute('data-k');S.packs[k]=S.packs[k]?0:1;S.auto=false;run++;render();return}
+    if(a==='comp'){var k2=t.getAttribute('data-k'),ix=S.comps.indexOf(k2);if(ix>-1)S.comps.splice(ix,1);else S.comps.push(k2);S.auto=false;run++;render();return}
     if(a==='scan'){manual(async function(){await scan();S.step=2;render()});return}
     if(a==='sendnext'){manual(async function(){await sendNext()});return}
     if(a==='skip'){manual(async function(){S.skipped++;await next()});return}
